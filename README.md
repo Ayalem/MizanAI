@@ -2,7 +2,7 @@
 ### The First Bilingual AI Legal Assistant for Moroccan Law
 
 <p align="center">
-  <img src="docs/architecture.png" alt="MizanAI Architecture" width="100%"/>
+  <img src="docs/architecture_diagram.png" alt="MizanAI Architecture" width="100%"/>
 </p>
 
 <p align="center">
