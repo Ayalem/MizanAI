@@ -1,0 +1,105 @@
+services:
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mizanai.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  airflow-init:
+    image: apache/airflow:2.8.0
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    command: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@mizanai.com"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  airflow-webserver:
+    build: .
+    command: webserver
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./data:/opt/airflow/data
+      - ./scrapy_project:/opt/airflow/scrapy_project 
+      - /var/run/docker.sock:/var/run/docker.sock 
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  airflow-scheduler:
+    build: .
+    command: scheduler
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./data:/opt/airflow/data
+      - ./scrapy_project:/opt/airflow/scrapy_project   
+      - /var/run/docker.sock:/var/run/docker.sock 
+    depends_on:
+      postgres:
+        condition: service_healthy
+  
+  spark-master:
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
+    user: root
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+    environment:
+      - SPARK_NO_DAEMONIZE=true
+    ports:
+      - "8081:8080"
+      - "7077:7077"
+    volumes:
+      -  ./spark_jobs:/opt/spark_jobs
+      -  ./data:/opt/airflow/data
+
+  spark-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
+    user: root
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    environment:
+      - SPARK_NO_DAEMONIZE=true
+      - SPARK_WORKER_MEMORY=2g
+      - SPARK_WORKER_CORES=2
+    volumes:
+      - ./spark_jobs:/opt/spark_jobs
+      - ./data:/opt/airflow/data
+    depends_on:
+      - spark-master
+volumes:
+  postgres_data:     

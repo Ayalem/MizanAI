@@ -1,0 +1,14 @@
+[2026-03-04T12:45:53.880+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: adala_ingestion.verify_downloads manual__2026-03-04T12:45:44.990175+00:00 [queued]>
+[2026-03-04T12:45:53.906+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: adala_ingestion.verify_downloads manual__2026-03-04T12:45:44.990175+00:00 [queued]>
+[2026-03-04T12:45:53.913+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 4
+[2026-03-04T12:45:53.926+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): verify_downloads> on 2026-03-04 12:45:44.990175+00:00
+[2026-03-04T12:45:53.931+0000] {standard_task_runner.py:60} INFO - Started process 185 to run task
+[2026-03-04T12:45:53.934+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'adala_ingestion', 'verify_downloads', 'manual__2026-03-04T12:45:44.990175+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/adala_ingestion.py', '--cfg-path', '/tmp/tmptjoxev_q']
+[2026-03-04T12:45:53.936+0000] {standard_task_runner.py:88} INFO - Job 13: Subtask verify_downloads
+[2026-03-04T12:45:53.983+0000] {task_command.py:423} INFO - Running <TaskInstance: adala_ingestion.verify_downloads manual__2026-03-04T12:45:44.990175+00:00 [running]> on host b37c89eb78cc
+[2026-03-04T12:45:54.051+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='moudawana' AIRFLOW_CTX_DAG_ID='adala_ingestion' AIRFLOW_CTX_TASK_ID='verify_downloads' AIRFLOW_CTX_EXECUTION_DATE='2026-03-04T12:45:44.990175+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-04T12:45:44.990175+00:00'
+[2026-03-04T12:45:54.056+0000] {logging_mixin.py:188} INFO - Total documents in DB: 31
+[2026-03-04T12:45:54.056+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-03-04T12:45:54.061+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=adala_ingestion, task_id=verify_downloads, execution_date=20260304T124544, start_date=20260304T124553, end_date=20260304T124554
+[2026-03-04T12:45:54.114+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-04T12:45:54.132+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

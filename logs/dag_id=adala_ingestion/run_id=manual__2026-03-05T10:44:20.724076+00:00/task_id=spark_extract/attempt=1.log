@@ -1,0 +1,112 @@
+[2026-03-05T10:44:36.128+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: adala_ingestion.spark_extract manual__2026-03-05T10:44:20.724076+00:00 [queued]>
+[2026-03-05T10:44:36.140+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: adala_ingestion.spark_extract manual__2026-03-05T10:44:20.724076+00:00 [queued]>
+[2026-03-05T10:44:36.141+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 4
+[2026-03-05T10:44:36.150+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): spark_extract> on 2026-03-05 10:44:20.724076+00:00
+[2026-03-05T10:44:36.157+0000] {standard_task_runner.py:60} INFO - Started process 4116 to run task
+[2026-03-05T10:44:36.161+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'adala_ingestion', 'spark_extract', 'manual__2026-03-05T10:44:20.724076+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/adala_ingestion.py', '--cfg-path', '/tmp/tmpghwjin91']
+[2026-03-05T10:44:36.165+0000] {standard_task_runner.py:88} INFO - Job 37: Subtask spark_extract
+[2026-03-05T10:44:36.230+0000] {task_command.py:423} INFO - Running <TaskInstance: adala_ingestion.spark_extract manual__2026-03-05T10:44:20.724076+00:00 [running]> on host e94a7b2edf14
+[2026-03-05T10:44:36.323+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='moudawana' AIRFLOW_CTX_DAG_ID='adala_ingestion' AIRFLOW_CTX_TASK_ID='spark_extract' AIRFLOW_CTX_EXECUTION_DATE='2026-03-05T10:44:20.724076+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-05T10:44:20.724076+00:00'
+[2026-03-05T10:44:36.325+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-05T10:44:36.327+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n     docker exec mizanai-spark-master-1         /opt/spark/bin/spark-submit         --master spark://spark-master:7077         --jars /opt/spark_jobs/postgresql-42.7.3.jar         /opt/spark_jobs/extract_text.py\n    ']
+[2026-03-05T10:44:36.346+0000] {subprocess.py:86} INFO - Output:
+[2026-03-05T10:44:37.147+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-03-05T10:44:38.702+0000] {subprocess.py:93} INFO - 26/03/05 10:44:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-03-05T10:44:40.344+0000] {subprocess.py:93} INFO - Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+[2026-03-05T10:44:40.355+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SparkContext: Running Spark version 4.0.1
+[2026-03-05T10:44:40.356+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SparkContext: OS info Linux, 6.12.5-linuxkit, aarch64
+[2026-03-05T10:44:40.356+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SparkContext: Java version 21.0.10
+[2026-03-05T10:44:40.416+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO ResourceUtils: ==============================================================
+[2026-03-05T10:44:40.418+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-03-05T10:44:40.420+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO ResourceUtils: ==============================================================
+[2026-03-05T10:44:40.421+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SparkContext: Submitted application: LagalDocumentTextExtractor
+[2026-03-05T10:44:40.493+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-03-05T10:44:40.496+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO ResourceProfile: Limiting resource is cpu
+[2026-03-05T10:44:40.497+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-03-05T10:44:40.698+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SecurityManager: Changing view acls to: root
+[2026-03-05T10:44:40.703+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SecurityManager: Changing modify acls to: root
+[2026-03-05T10:44:40.728+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SecurityManager: Changing view acls groups to: root
+[2026-03-05T10:44:40.732+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SecurityManager: Changing modify acls groups to: root
+[2026-03-05T10:44:40.735+0000] {subprocess.py:93} INFO - 26/03/05 10:44:40 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY; RPC SSL disabled
+[2026-03-05T10:44:41.066+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO Utils: Successfully started service 'sparkDriver' on port 43259.
+[2026-03-05T10:44:41.099+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SparkEnv: Registering MapOutputTracker
+[2026-03-05T10:44:41.114+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SparkEnv: Registering BlockManagerMaster
+[2026-03-05T10:44:41.142+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-03-05T10:44:41.143+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-03-05T10:44:41.145+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-03-05T10:44:41.177+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-86be55d7-1c9c-49cf-a0ba-6bd9ba91901b
+[2026-03-05T10:44:41.200+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-03-05T10:44:41.456+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-03-05T10:44:41.537+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-03-05T10:44:41.585+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SparkContext: Added JAR /opt/spark_jobs/postgresql-42.7.3.jar at spark://635a54ab836c:43259/jars/postgresql-42.7.3.jar with timestamp 1772707480320
+[2026-03-05T10:44:41.607+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SecurityManager: Changing view acls to: root
+[2026-03-05T10:44:41.607+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SecurityManager: Changing modify acls to: root
+[2026-03-05T10:44:41.607+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SecurityManager: Changing view acls groups to: root
+[2026-03-05T10:44:41.607+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SecurityManager: Changing modify acls groups to: root
+[2026-03-05T10:44:41.607+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY; RPC SSL disabled
+[2026-03-05T10:44:41.815+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-03-05T10:44:41.884+0000] {subprocess.py:93} INFO - 26/03/05 10:44:41 INFO TransportClientFactory: Successfully created connection to spark-master/172.19.0.3:7077 after 32 ms (0 ms spent in bootstraps)
+[2026-03-05T10:44:42.199+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260305104442-0004
+[2026-03-05T10:44:42.206+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260305104442-0004/0 on worker-20260304125723-172.19.0.4-40123 (172.19.0.4:40123) with 2 core(s)
+[2026-03-05T10:44:42.208+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35951.
+[2026-03-05T10:44:42.209+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO NettyBlockTransferService: Server created on 635a54ab836c:35951
+[2026-03-05T10:44:42.209+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO StandaloneSchedulerBackend: Granted executor ID app-20260305104442-0004/0 on hostPort 172.19.0.4:40123 with 2 core(s), 1024.0 MiB RAM
+[2026-03-05T10:44:42.211+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-03-05T10:44:42.221+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 635a54ab836c, 35951, None)
+[2026-03-05T10:44:42.224+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO BlockManagerMasterEndpoint: Registering block manager 635a54ab836c:35951 with 434.4 MiB RAM, BlockManagerId(driver, 635a54ab836c, 35951, None)
+[2026-03-05T10:44:42.226+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 635a54ab836c, 35951, None)
+[2026-03-05T10:44:42.227+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 635a54ab836c, 35951, None)
+[2026-03-05T10:44:42.425+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-03-05T10:44:42.740+0000] {subprocess.py:93} INFO - 26/03/05 10:44:42 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260305104442-0004/0 is now RUNNING
+[2026-03-05T10:44:49.273+0000] {subprocess.py:93} INFO - Spark session started
+[2026-03-05T10:44:57.065+0000] {subprocess.py:93} INFO - Documents found: 31
+[2026-03-05T10:44:57.582+0000] {subprocess.py:93} INFO - +---+--------------------+--------------------+----------+--------+--------------------+---------+------------+-------------+--------------------+
+[2026-03-05T10:44:57.583+0000] {subprocess.py:93} INFO - | id|               title|             pdf_url|  category|language|            filepath|file_hash|file_size_kb|downloaded_at|          created_at|
+[2026-03-05T10:44:57.583+0000] {subprocess.py:93} INFO - +---+--------------------+--------------------+----------+--------+--------------------+---------+------------+-------------+--------------------+
+[2026-03-05T10:44:57.584+0000] {subprocess.py:93} INFO - |  1|قانون المسطرة الم...|https://adala.jus...|   famille|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.585+0000] {subprocess.py:93} INFO - |  2|ظهير بمثابة قانون...|https://adala.jus...|     civil|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.585+0000] {subprocess.py:93} INFO - |  3|القانون المتعلق ب...|https://adala.jus...|     civil|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.586+0000] {subprocess.py:93} INFO - |  4|قانون يتعلق بمدون...|https://adala.jus...|commercial|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.586+0000] {subprocess.py:93} INFO - |  5|قانون بمثابة مدون...|https://adala.jus...|   famille|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.586+0000] {subprocess.py:93} INFO - |  6|القانون المتعلق ب...|https://adala.jus...|   travail|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.587+0000] {subprocess.py:93} INFO - |  7|  Code de la famille|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.587+0000] {subprocess.py:93} INFO - |  8|Fonds d’entraide ...|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.588+0000] {subprocess.py:93} INFO - |  9|Enfants abandonné...|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.588+0000] {subprocess.py:93} INFO - | 10|          Etat civil|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.588+0000] {subprocess.py:93} INFO - | 11|Code de la Nation...|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.588+0000] {subprocess.py:93} INFO - | 12|          Code pénal|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.592+0000] {subprocess.py:93} INFO - | 13|Dahir sur l'asses...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.593+0000] {subprocess.py:93} INFO - | 14|La lutte contre l...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.593+0000] {subprocess.py:93} INFO - | 15|              Grâces|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.594+0000] {subprocess.py:93} INFO - | 16|Loi relative à la...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.594+0000] {subprocess.py:93} INFO - | 17|Entrée et séjour ...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.594+0000] {subprocess.py:93} INFO - | 18|Loi relative a La...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.594+0000] {subprocess.py:93} INFO - | 19|Loi relative a la...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.595+0000] {subprocess.py:93} INFO - | 20|Organisation de l...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-05T10:44:57.595+0000] {subprocess.py:93} INFO - +---+--------------------+--------------------+----------+--------+--------------------+---------+------------+-------------+--------------------+
+[2026-03-05T10:44:57.595+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2026-03-05T10:45:03.772+0000] {subprocess.py:93} INFO - Documents with text:31
+[2026-03-05T10:45:09.834+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-05T10:45:09.837+0000] {subprocess.py:93} INFO - |                                title|                                          raw_text|
+[2026-03-05T10:45:09.837+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-05T10:45:09.837+0000] {subprocess.py:93} INFO - |                قانون المسطرة المدنية|قانون المسطرة المدنية \n صيغة محينة بتاريخ13\n ...|
+[2026-03-05T10:45:09.837+0000] {subprocess.py:93} INFO - | ظهير بمثابة قانون الالتزامات والعقود|-1-\n \n \n \n \n \n \n \n \n \n \n \n \n \nظهي...|
+[2026-03-05T10:45:09.838+0000] {subprocess.py:93} INFO - |القانون المتعلق بمدونة الحقوق العينية|القانون رقم39.08\n المتعلق ب\nمدونة الحقوق العي...|
+[2026-03-05T10:45:09.838+0000] {subprocess.py:93} INFO - |           قانون يتعلق بمدونة التجارة|القانون رقم15.95\n \n المتعلق بمدونة التجارة  \...|
+[2026-03-05T10:45:09.838+0000] {subprocess.py:93} INFO - |            قانون بمثابة مدونة الأسرة|- 1  -\n \n \n \n \n \n \n \n \n \n \n \nمدونة ...|
+[2026-03-05T10:45:09.838+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-05T10:45:09.838+0000] {subprocess.py:93} INFO - only showing top 5 rows
+[2026-03-05T10:45:09.878+0000] {subprocess.py:93} INFO - Chunking done
+[2026-03-05T10:45:35.765+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-05T10:45:35.769+0000] {subprocess.py:93} INFO - |                                title|                                            chunks|
+[2026-03-05T10:45:35.770+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-05T10:45:35.770+0000] {subprocess.py:93} INFO - |                قانون المسطرة المدنية|[قانون المسطرة المدنية صيغة محينة بتاريخ13 يوني...|
+[2026-03-05T10:45:35.770+0000] {subprocess.py:93} INFO - | ظهير بمثابة قانون الالتزامات والعقود|[-1- ظهير بمثابة قانون االلتزامات والعقود صيغة ...|
+[2026-03-05T10:45:35.770+0000] {subprocess.py:93} INFO - |القانون المتعلق بمدونة الحقوق العينية|[القانون رقم39.08 المتعلق ب مدونة الحقوق العيني...|
+[2026-03-05T10:45:35.771+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-05T10:45:35.771+0000] {subprocess.py:93} INFO - only showing top 3 rows
+[2026-03-05T10:47:12.015+0000] {subprocess.py:93} INFO - Chunks saved to PostgreSQL
+[2026-03-05T10:47:13.318+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-05T10:47:13.434+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=adala_ingestion, task_id=spark_extract, execution_date=20260305T104420, start_date=20260305T104436, end_date=20260305T104713
+[2026-03-05T10:47:13.478+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-05T10:47:13.544+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,4 @@
+FROM arm64v8/spark:python3
+USER root
+RUN pip install pymupdf transformers psycopg2-binary    
+USER spark

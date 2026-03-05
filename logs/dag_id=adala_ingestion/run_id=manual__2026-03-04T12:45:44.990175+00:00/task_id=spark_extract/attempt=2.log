@@ -1,0 +1,32 @@
+[2026-03-04T12:50:58.008+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: adala_ingestion.spark_extract manual__2026-03-04T12:45:44.990175+00:00 [queued]>
+[2026-03-04T12:50:58.013+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: adala_ingestion.spark_extract manual__2026-03-04T12:45:44.990175+00:00 [queued]>
+[2026-03-04T12:50:58.013+0000] {taskinstance.py:2171} INFO - Starting attempt 2 of 4
+[2026-03-04T12:50:58.021+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): spark_extract> on 2026-03-04 12:45:44.990175+00:00
+[2026-03-04T12:50:58.025+0000] {standard_task_runner.py:60} INFO - Started process 282 to run task
+[2026-03-04T12:50:58.031+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'adala_ingestion', 'spark_extract', 'manual__2026-03-04T12:45:44.990175+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/adala_ingestion.py', '--cfg-path', '/tmp/tmp2ohybo4q']
+[2026-03-04T12:50:58.040+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask spark_extract
+[2026-03-04T12:50:58.131+0000] {task_command.py:423} INFO - Running <TaskInstance: adala_ingestion.spark_extract manual__2026-03-04T12:45:44.990175+00:00 [running]> on host b37c89eb78cc
+[2026-03-04T12:50:58.200+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='moudawana' AIRFLOW_CTX_DAG_ID='adala_ingestion' AIRFLOW_CTX_TASK_ID='spark_extract' AIRFLOW_CTX_EXECUTION_DATE='2026-03-04T12:45:44.990175+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-04T12:45:44.990175+00:00'
+[2026-03-04T12:50:58.202+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-04T12:50:58.203+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n     docker exec mizanai-spark-master-1         /opt/spark/bin/spark-submit         --master spark://spark-master:7077         --jars /opt/spark_jobs/postgresql-42.7.3.jar         /opt/spark_jobs/extract_text.py\n    ']
+[2026-03-04T12:50:58.220+0000] {subprocess.py:86} INFO - Output:
+[2026-03-04T12:50:58.564+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-03-04T12:50:59.812+0000] {subprocess.py:93} INFO - 26/03/04 12:50:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-03-04T12:51:00.546+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-03-04T12:51:00.549+0000] {subprocess.py:93} INFO -   File "/opt/spark_jobs/extract_text.py", line 4, in <module>
+[2026-03-04T12:51:00.549+0000] {subprocess.py:93} INFO -     import fitz
+[2026-03-04T12:51:00.551+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'fitz'
+[2026-03-04T12:51:00.637+0000] {subprocess.py:93} INFO - 26/03/04 12:51:00 INFO ShutdownHookManager: Shutdown hook called
+[2026-03-04T12:51:00.644+0000] {subprocess.py:93} INFO - 26/03/04 12:51:00 INFO ShutdownHookManager: Deleting directory /tmp/spark-e0483261-d36d-492d-bf08-a7a5dd2fee19
+[2026-03-04T12:51:00.781+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-04T12:51:00.821+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-04T12:51:00.826+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=adala_ingestion, task_id=spark_extract, execution_date=20260304T124544, start_date=20260304T125058, end_date=20260304T125100
+[2026-03-04T12:51:00.848+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 21 for task spark_extract (Bash command failed. The command returned a non-zero exit code 1.; 282)
+[2026-03-04T12:51:00.899+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-03-04T12:51:00.955+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,16 @@
+[2026-03-04T12:58:53.526+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: adala_ingestion.scrape_adala manual__2026-03-04T12:58:50.895626+00:00 [queued]>
+[2026-03-04T12:58:53.573+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: adala_ingestion.scrape_adala manual__2026-03-04T12:58:50.895626+00:00 [queued]>
+[2026-03-04T12:58:53.574+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 4
+[2026-03-04T12:58:53.599+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): scrape_adala> on 2026-03-04 12:58:50.895626+00:00
+[2026-03-04T12:58:53.677+0000] {standard_task_runner.py:60} INFO - Started process 211 to run task
+[2026-03-04T12:58:53.722+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'adala_ingestion', 'scrape_adala', 'manual__2026-03-04T12:58:50.895626+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/adala_ingestion.py', '--cfg-path', '/tmp/tmp63aedar_']
+[2026-03-04T12:58:53.772+0000] {standard_task_runner.py:88} INFO - Job 28: Subtask scrape_adala
+[2026-03-04T12:58:54.150+0000] {task_command.py:423} INFO - Running <TaskInstance: adala_ingestion.scrape_adala manual__2026-03-04T12:58:50.895626+00:00 [running]> on host e94a7b2edf14
+[2026-03-04T12:58:54.394+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='moudawana' AIRFLOW_CTX_DAG_ID='adala_ingestion' AIRFLOW_CTX_TASK_ID='scrape_adala' AIRFLOW_CTX_EXECUTION_DATE='2026-03-04T12:58:50.895626+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-04T12:58:50.895626+00:00'
+[2026-03-04T12:58:54.396+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-04T12:58:54.397+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd  /opt/***/scrapy_project && scrapy crawl adala']
+[2026-03-04T12:58:54.439+0000] {subprocess.py:86} INFO - Output:
+[2026-03-04T12:59:00.627+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-04T12:59:00.679+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=adala_ingestion, task_id=scrape_adala, execution_date=20260304T125850, start_date=20260304T125853, end_date=20260304T125900
+[2026-03-04T12:59:00.718+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-04T12:59:00.741+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

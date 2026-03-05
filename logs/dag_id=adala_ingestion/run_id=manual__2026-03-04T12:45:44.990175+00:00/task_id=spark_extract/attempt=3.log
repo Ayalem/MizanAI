@@ -1,0 +1,130 @@
+[2026-03-04T12:57:46.470+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: adala_ingestion.spark_extract manual__2026-03-04T12:45:44.990175+00:00 [queued]>
+[2026-03-04T12:57:46.484+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: adala_ingestion.spark_extract manual__2026-03-04T12:45:44.990175+00:00 [queued]>
+[2026-03-04T12:57:46.485+0000] {taskinstance.py:2171} INFO - Starting attempt 3 of 4
+[2026-03-04T12:57:46.520+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): spark_extract> on 2026-03-04 12:45:44.990175+00:00
+[2026-03-04T12:57:46.531+0000] {standard_task_runner.py:60} INFO - Started process 175 to run task
+[2026-03-04T12:57:46.541+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'adala_ingestion', 'spark_extract', 'manual__2026-03-04T12:45:44.990175+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/adala_ingestion.py', '--cfg-path', '/tmp/tmpm5bjme6j']
+[2026-03-04T12:57:46.546+0000] {standard_task_runner.py:88} INFO - Job 25: Subtask spark_extract
+[2026-03-04T12:57:46.698+0000] {task_command.py:423} INFO - Running <TaskInstance: adala_ingestion.spark_extract manual__2026-03-04T12:45:44.990175+00:00 [running]> on host e94a7b2edf14
+[2026-03-04T12:57:46.904+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='moudawana' AIRFLOW_CTX_DAG_ID='adala_ingestion' AIRFLOW_CTX_TASK_ID='spark_extract' AIRFLOW_CTX_EXECUTION_DATE='2026-03-04T12:45:44.990175+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-04T12:45:44.990175+00:00'
+[2026-03-04T12:57:46.905+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-04T12:57:46.908+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n     docker exec mizanai-spark-master-1         /opt/spark/bin/spark-submit         --master spark://spark-master:7077         --jars /opt/spark_jobs/postgresql-42.7.3.jar         /opt/spark_jobs/extract_text.py\n    ']
+[2026-03-04T12:57:46.928+0000] {subprocess.py:86} INFO - Output:
+[2026-03-04T12:57:47.456+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-03-04T12:57:51.071+0000] {subprocess.py:93} INFO - 26/03/04 12:57:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-03-04T12:57:52.738+0000] {subprocess.py:93} INFO - Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+[2026-03-04T12:57:52.751+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SparkContext: Running Spark version 4.0.1
+[2026-03-04T12:57:52.763+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SparkContext: OS info Linux, 6.12.5-linuxkit, aarch64
+[2026-03-04T12:57:52.764+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SparkContext: Java version 21.0.10
+[2026-03-04T12:57:52.819+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO ResourceUtils: ==============================================================
+[2026-03-04T12:57:52.820+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-03-04T12:57:52.821+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO ResourceUtils: ==============================================================
+[2026-03-04T12:57:52.821+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SparkContext: Submitted application: LagalDocumentTextExtractor
+[2026-03-04T12:57:52.865+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-03-04T12:57:52.871+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO ResourceProfile: Limiting resource is cpu
+[2026-03-04T12:57:52.878+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-03-04T12:57:52.967+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SecurityManager: Changing view acls to: root
+[2026-03-04T12:57:53.080+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SecurityManager: Changing modify acls to: root
+[2026-03-04T12:57:53.091+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SecurityManager: Changing view acls groups to: root
+[2026-03-04T12:57:53.098+0000] {subprocess.py:93} INFO - 26/03/04 12:57:52 INFO SecurityManager: Changing modify acls groups to: root
+[2026-03-04T12:57:53.104+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY; RPC SSL disabled
+[2026-03-04T12:57:53.539+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO Utils: Successfully started service 'sparkDriver' on port 40617.
+[2026-03-04T12:57:53.583+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO SparkEnv: Registering MapOutputTracker
+[2026-03-04T12:57:53.621+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO SparkEnv: Registering BlockManagerMaster
+[2026-03-04T12:57:53.665+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-03-04T12:57:53.667+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-03-04T12:57:53.672+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-03-04T12:57:53.746+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-8c269863-e855-4c7d-a7b0-f267bcdba135
+[2026-03-04T12:57:53.821+0000] {subprocess.py:93} INFO - 26/03/04 12:57:53 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-03-04T12:57:54.165+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-03-04T12:57:54.380+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-03-04T12:57:54.450+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO SparkContext: Added JAR /opt/spark_jobs/postgresql-42.7.3.jar at spark://635a54ab836c:40617/jars/postgresql-42.7.3.jar with timestamp 1772629072720
+[2026-03-04T12:57:54.491+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO SecurityManager: Changing view acls to: root
+[2026-03-04T12:57:54.492+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO SecurityManager: Changing modify acls to: root
+[2026-03-04T12:57:54.492+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO SecurityManager: Changing view acls groups to: root
+[2026-03-04T12:57:54.494+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO SecurityManager: Changing modify acls groups to: root
+[2026-03-04T12:57:54.497+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY; RPC SSL disabled
+[2026-03-04T12:57:54.814+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-03-04T12:57:54.922+0000] {subprocess.py:93} INFO - 26/03/04 12:57:54 INFO TransportClientFactory: Successfully created connection to spark-master/172.19.0.3:7077 after 49 ms (0 ms spent in bootstraps)
+[2026-03-04T12:57:55.393+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260304125755-0001
+[2026-03-04T12:57:55.404+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40899.
+[2026-03-04T12:57:55.413+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO NettyBlockTransferService: Server created on 635a54ab836c:40899
+[2026-03-04T12:57:55.415+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-03-04T12:57:55.459+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 635a54ab836c, 40899, None)
+[2026-03-04T12:57:55.466+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO BlockManagerMasterEndpoint: Registering block manager 635a54ab836c:40899 with 434.4 MiB RAM, BlockManagerId(driver, 635a54ab836c, 40899, None)
+[2026-03-04T12:57:55.475+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 635a54ab836c, 40899, None)
+[2026-03-04T12:57:55.480+0000] {subprocess.py:93} INFO - 26/03/04 12:57:55 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 635a54ab836c, 40899, None)
+[2026-03-04T12:57:56.038+0000] {subprocess.py:93} INFO - 26/03/04 12:57:56 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-03-04T12:58:04.908+0000] {subprocess.py:93} INFO - Spark session started
+[2026-03-04T12:58:30.107+0000] {subprocess.py:93} INFO - 26/03/04 12:58:30 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T12:58:45.031+0000] {subprocess.py:93} INFO - 26/03/04 12:58:45 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T12:59:00.032+0000] {subprocess.py:93} INFO - 26/03/04 12:59:00 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T12:59:15.030+0000] {subprocess.py:93} INFO - 26/03/04 12:59:15 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T12:59:30.030+0000] {subprocess.py:93} INFO - 26/03/04 12:59:30 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T12:59:45.053+0000] {subprocess.py:93} INFO - 26/03/04 12:59:45 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:00:00.085+0000] {subprocess.py:93} INFO - 26/03/04 13:00:00 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:00:15.025+0000] {subprocess.py:93} INFO - 26/03/04 13:00:15 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:00:30.019+0000] {subprocess.py:93} INFO - 26/03/04 13:00:30 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:00:45.009+0000] {subprocess.py:93} INFO - 26/03/04 13:00:45 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:01:00.027+0000] {subprocess.py:93} INFO - 26/03/04 13:01:00 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:01:15.024+0000] {subprocess.py:93} INFO - 26/03/04 13:01:15 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:01:30.037+0000] {subprocess.py:93} INFO - 26/03/04 13:01:30 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:01:45.028+0000] {subprocess.py:93} INFO - 26/03/04 13:01:45 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:02:00.044+0000] {subprocess.py:93} INFO - 26/03/04 13:02:00 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:02:15.026+0000] {subprocess.py:93} INFO - 26/03/04 13:02:15 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:02:30.034+0000] {subprocess.py:93} INFO - 26/03/04 13:02:30 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:02:45.029+0000] {subprocess.py:93} INFO - 26/03/04 13:02:45 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:03:00.028+0000] {subprocess.py:93} INFO - 26/03/04 13:03:00 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:03:15.030+0000] {subprocess.py:93} INFO - 26/03/04 13:03:15 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:03:30.049+0000] {subprocess.py:93} INFO - 26/03/04 13:03:30 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-03-04T13:03:34.819+0000] {subprocess.py:93} INFO - Documents found: 31
+[2026-03-04T13:03:35.751+0000] {subprocess.py:93} INFO - +---+--------------------+--------------------+----------+--------+--------------------+---------+------------+-------------+--------------------+
+[2026-03-04T13:03:35.752+0000] {subprocess.py:93} INFO - | id|               title|             pdf_url|  category|language|            filepath|file_hash|file_size_kb|downloaded_at|          created_at|
+[2026-03-04T13:03:35.752+0000] {subprocess.py:93} INFO - +---+--------------------+--------------------+----------+--------+--------------------+---------+------------+-------------+--------------------+
+[2026-03-04T13:03:35.752+0000] {subprocess.py:93} INFO - |  1|قانون المسطرة الم...|https://adala.jus...|   famille|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.753+0000] {subprocess.py:93} INFO - |  2|ظهير بمثابة قانون...|https://adala.jus...|     civil|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.753+0000] {subprocess.py:93} INFO - |  3|القانون المتعلق ب...|https://adala.jus...|     civil|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.753+0000] {subprocess.py:93} INFO - |  4|قانون يتعلق بمدون...|https://adala.jus...|commercial|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.753+0000] {subprocess.py:93} INFO - |  5|قانون بمثابة مدون...|https://adala.jus...|   famille|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.753+0000] {subprocess.py:93} INFO - |  6|القانون المتعلق ب...|https://adala.jus...|   travail|      ar|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - |  7|  Code de la famille|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - |  8|Fonds d’entraide ...|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - |  9|Enfants abandonné...|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - | 10|          Etat civil|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - | 11|Code de la Nation...|https://adala.jus...|famille_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - | 12|          Code pénal|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - | 13|Dahir sur l'asses...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.754+0000] {subprocess.py:93} INFO - | 14|La lutte contre l...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - | 15|              Grâces|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - | 16|Loi relative à la...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - | 17|Entrée et séjour ...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - | 18|Loi relative a La...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - | 19|Loi relative a la...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - | 20|Organisation de l...|https://adala.jus...|  penal_fr|      fr|/opt/***/data...|     NULL|        NULL|         NULL|2026-03-03 14:04:...|
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - +---+--------------------+--------------------+----------+--------+--------------------+---------+------------+-------------+--------------------+
+[2026-03-04T13:03:35.755+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2026-03-04T13:03:40.865+0000] {subprocess.py:93} INFO - Documents with text:31
+[2026-03-04T13:03:46.210+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-04T13:03:46.212+0000] {subprocess.py:93} INFO - |                                title|                                          raw_text|
+[2026-03-04T13:03:46.212+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-04T13:03:46.213+0000] {subprocess.py:93} INFO - |                قانون المسطرة المدنية|قانون المسطرة المدنية \n صيغة محينة بتاريخ13\n ...|
+[2026-03-04T13:03:46.213+0000] {subprocess.py:93} INFO - | ظهير بمثابة قانون الالتزامات والعقود|-1-\n \n \n \n \n \n \n \n \n \n \n \n \n \nظهي...|
+[2026-03-04T13:03:46.213+0000] {subprocess.py:93} INFO - |القانون المتعلق بمدونة الحقوق العينية|القانون رقم39.08\n المتعلق ب\nمدونة الحقوق العي...|
+[2026-03-04T13:03:46.213+0000] {subprocess.py:93} INFO - |           قانون يتعلق بمدونة التجارة|القانون رقم15.95\n \n المتعلق بمدونة التجارة  \...|
+[2026-03-04T13:03:46.214+0000] {subprocess.py:93} INFO - |            قانون بمثابة مدونة الأسرة|- 1  -\n \n \n \n \n \n \n \n \n \n \n \nمدونة ...|
+[2026-03-04T13:03:46.214+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-04T13:03:46.214+0000] {subprocess.py:93} INFO - only showing top 5 rows
+[2026-03-04T13:03:46.260+0000] {subprocess.py:93} INFO - Chunking done
+[2026-03-04T13:04:05.288+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-04T13:04:05.292+0000] {subprocess.py:93} INFO - |                                title|                                            chunks|
+[2026-03-04T13:04:05.293+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-04T13:04:05.293+0000] {subprocess.py:93} INFO - |                قانون المسطرة المدنية|[قانون المسطرة المدنية صيغة محينة بتاريخ13 يوني...|
+[2026-03-04T13:04:05.294+0000] {subprocess.py:93} INFO - | ظهير بمثابة قانون الالتزامات والعقود|[-1- ظهير بمثابة قانون االلتزامات والعقود صيغة ...|
+[2026-03-04T13:04:05.294+0000] {subprocess.py:93} INFO - |القانون المتعلق بمدونة الحقوق العينية|[القانون رقم39.08 المتعلق ب مدونة الحقوق العيني...|
+[2026-03-04T13:04:05.294+0000] {subprocess.py:93} INFO - +-------------------------------------+--------------------------------------------------+
+[2026-03-04T13:04:05.295+0000] {subprocess.py:93} INFO - only showing top 3 rows
+[2026-03-04T13:06:14.902+0000] {subprocess.py:93} INFO - Chunks saved to PostgreSQL
+[2026-03-04T13:06:17.527+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-04T13:06:18.131+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=adala_ingestion, task_id=spark_extract, execution_date=20260304T124544, start_date=20260304T125746, end_date=20260304T130618
+[2026-03-04T13:06:18.194+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-04T13:06:18.275+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

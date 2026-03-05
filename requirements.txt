@@ -1,0 +1,31 @@
+# Web scraping
+requests
+beautifulsoup4
+feedparser
+
+# PDF extraction
+pymupdf
+
+# Arabic text
+pyarabic
+camel-tools
+
+# Pipeline orchestration
+apache-airflow==2.8.0
+
+# Big data processing
+pyspark==3.5.0
+
+# Database
+psycopg2-binary
+pgvector
+
+# Data validation
+great-expectations
+
+# Language detection
+langdetect
+
+# Utilities
+python-dotenv
+pandas
